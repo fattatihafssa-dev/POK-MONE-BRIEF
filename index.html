@@ -11,14 +11,11 @@
 <body class="min-w-0 bg-ground font-body text-ink">
 
   <!-- ===================== EN-TÊTE ===================== -->
-<header class="bg-brand text-white">
-  
-</header>  
-  <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-4 py-5 sm:px-6 lg:px-8">
+  <header class="bg-brand text-white" style="background-color: red;">
+    <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-4 py-5 sm:px-6 lg:px-8">
 
       <div class="flex items-center gap-3">
         <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-accent text-ink">
-          
           <svg aria-hidden="true" class="h-6 w-6" viewBox="0 0 24 24"
             fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round">
@@ -39,18 +36,15 @@
       </div>
 
       <nav aria-label="Navigation principale" class="flex flex-wrap gap-2">
-        <a href="#grid"
-          class="rounded-full bg-white/10 px-4 py-2 transition hover:bg-white/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+        <a href="#grid" class="rounded-full bg-white/10 px-4 py-2 transition hover:bg-white/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
           Créatures
         </a>
 
-        <a href="#team"
-          class="rounded-full bg-white/10 px-4 py-2 transition hover:bg-white/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+        <a href="#team" class="rounded-full bg-white/10 px-4 py-2 transition hover:bg-white/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
           Mon équipe · <span id="team-count">0</span>/6
         </a>
 
-        <a href="#create"
-          class="rounded-full bg-white px-4 py-2 font-bold text-ink transition hover:bg-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+        <a href="#create" class="rounded-full bg-white px-4 py-2 font-bold text-ink transition hover:bg-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
           + Nouvelle créature
         </a>
       </nav>
@@ -61,7 +55,6 @@
 
     <!-- =========== RECHERCHE ET FILTRES ===================== -->
     <section aria-label="Recherche et filtres" class="flex flex-col gap-4">
-
       <div class="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
         <h1 class="font-display text-3xl font-extrabold sm:text-4xl">
           Trouver une créature
@@ -69,20 +62,13 @@
 
         <label class="flex w-full max-w-md flex-col gap-1 text-sm font-bold">
           Rechercher par nom
-          <input id="search" type="search"
-            placeholder="ex. Mossling"
+          <input id="search" type="search" placeholder="ex. Mossling"
             class="field w-full min-w-0 font-normal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
         </label>
       </div>
 
-      <div id="filters" role="group" aria-label="Filtrer par type"
-        class="flex flex-wrap gap-2">
-
-        <button type="button"
-          class="chip shrink-0 border-ink bg-ink text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
-          Tous
-        </button>
-
+      <div id="filters" role="group" aria-label="Filtrer par type" class="flex flex-wrap gap-2">
+        <button type="button" class="chip shrink-0 border-ink bg-ink text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">Tous</button>
         <button type="button" class="chip shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">Feu</button>
         <button type="button" class="chip shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">Eau</button>
         <button type="button" class="chip shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">Plante</button>
@@ -96,19 +82,14 @@
 
       <!-- ===================== GRILLE DES CRÉATURES ===================== -->
       <section id="grid" aria-label="Créatures"
-        class="grid w-full min-w-0 flex-1 grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
+        class="grid w-full min-w-0 flex-1 grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 items-start">
 
         <!-- Carte 1 -->
-        <article tabindex="0"
-          class="flex min-w-0 flex-col gap-3 rounded-card bg-white p-3 pb-4 shadow-sm transition-transform duration-200 hover:-translate-y-1 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+        <article tabindex="0" class="flex min-w-0 flex-col gap-3 rounded-card bg-white p-3 pb-4 shadow-sm transition-transform duration-200 hover:-translate-y-1 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
 
-          <div class="relative flex h-36 items-center justify-center rounded-xl bg-brand-light">
-            <svg aria-hidden="true" class="h-14 w-14 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 16c0-5 3.5-9 8-9s8 4 8 9"></path>
-              <circle cx="9" cy="12" r="1"></circle>
-              <circle cx="15" cy="12" r="1"></circle>
-              <path d="M7 7 5 3M17 7l2-4"></path>
-            </svg>
+          <div class="relative flex h-40 items-center justify-center rounded-xl bg-brand-light">
+            <img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/133.png"
+              alt="Emberkit" class="h-28 w-28 object-contain">
             <span class="absolute left-3 top-2 font-mono text-sm text-muted">#001</span>
           </div>
 
@@ -122,16 +103,11 @@
         </article>
 
         <!-- Carte 2 -->
-        <article tabindex="0"
-          class="flex min-w-0 flex-col gap-3 rounded-card bg-white p-3 pb-4 shadow-sm transition-transform duration-200 hover:-translate-y-1 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+        <article tabindex="0" class="flex min-w-0 flex-col gap-3 rounded-card bg-white p-3 pb-4 shadow-sm transition-transform duration-200 hover:-translate-y-1 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
 
-          <div class="relative flex h-36 items-center justify-center rounded-xl bg-brand-light">
-            <svg aria-hidden="true" class="h-14 w-14 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 16c0-5 3.5-9 8-9s8 4 8 9"></path>
-              <circle cx="9" cy="12" r="1"></circle>
-              <circle cx="15" cy="12" r="1"></circle>
-              <path d="M7 7 5 3M17 7l2-4"></path>
-            </svg>
+          <div class="relative flex h- items-center justify-center rounded-xl bg-brand-light">
+            <img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/151.png"
+              alt="Tidalix" class="h-28 w-28 object-contain">
             <span class="absolute left-3 top-2 font-mono text-sm text-muted">#002</span>
           </div>
 
@@ -145,16 +121,11 @@
         </article>
 
         <!-- Carte 3 -->
-        <article tabindex="0"
-          class="flex min-w-0 flex-col gap-3 rounded-card bg-white p-3 pb-4 shadow-sm transition-transform duration-200 hover:-translate-y-1 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+        <article tabindex="0" class="flex min-w-0 flex-col gap-3 rounded-card bg-white p-3 pb-4 shadow-sm transition-transform duration-200 hover:-translate-y-1 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
 
-          <div class="relative flex h-36 items-center justify-center rounded-xl bg-brand-light">
-            <svg aria-hidden="true" class="h-14 w-14 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 16c0-5 3.5-9 8-9s8 4 8 9"></path>
-              <circle cx="9" cy="12" r="1"></circle>
-              <circle cx="15" cy="12" r="1"></circle>
-              <path d="M7 7 5 3M17 7l2-4"></path>
-            </svg>
+          <div class="relative flex h-30items-center justify-center rounded-xl bg-brand-light">
+            <img src="https://static.vecteezy.com/system/resources/previews/054/749/917/non_2x/bulbasaur-pokemon-character-free-vector.jpg"
+              alt="Mossling"  class="h-24 w-24 object-contain">
             <span class="absolute left-3 top-2 font-mono text-sm text-muted">#003</span>
           </div>
 
@@ -168,16 +139,12 @@
         </article>
 
         <!-- Carte 4 -->
-        <article tabindex="0"
-          class="flex min-w-0 flex-col gap-3 rounded-card bg-white p-3 pb-4 shadow-sm transition-transform duration-200 hover:-translate-y-1 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+        <article tabindex="0" class="flex min-w-0 flex-col gap-3 rounded-card bg-white p-3 pb-4 shadow-sm transition-transform duration-200 hover:-translate-y-1 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
 
-          <div class="relative flex h-36 items-center justify-center rounded-xl bg-brand-light">
-            <svg aria-hidden="true" class="h-14 w-14 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 16c0-5 3.5-9 8-9s8 4 8 9"></path>
-              <circle cx="9" cy="12" r="1"></circle>
-              <circle cx="15" cy="12" r="1"></circle>
-              <path d="M7 7 5 3M17 7l2-4"></path>
-            </svg>
+          <div class="relative flex h-30 items-center justify-center rounded-xl bg-brand-light">
+            <img src="https://images.immediate.co.uk/production/volatile/sites/3/2024/05/Untitled-design-73-f8023d0.png"
+              alt="Voltmaw"class="h-28 w-28 object-contain">
+
             <span class="absolute left-3 top-2 font-mono text-sm text-muted">#004</span>
           </div>
 
@@ -191,16 +158,11 @@
         </article>
 
         <!-- Carte 5 -->
-        <article tabindex="0"
-          class="flex min-w-0 flex-col gap-3 rounded-card bg-white p-3 pb-4 shadow-sm transition-transform duration-200 hover:-translate-y-1 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+        <article tabindex="0" class="flex min-w-0 flex-col gap-3 rounded-card bg-white p-3 pb-4 shadow-sm transition-transform duration-200 hover:-translate-y-1 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
 
-          <div class="relative flex h-36 items-center justify-center rounded-xl bg-brand-light">
-            <svg aria-hidden="true" class="h-14 w-14 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 16c0-5 3.5-9 8-9s8 4 8 9"></path>
-              <circle cx="9" cy="12" r="1"></circle>
-              <circle cx="15" cy="12" r="1"></circle>
-              <path d="M7 7 5 3M17 7l2-4"></path>
-            </svg>
+          <div class="relative flex h-30 items-center justify-center rounded-xl bg-brand-light">
+            <img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/471.png"
+              alt="Frostail" class="h-28 w-28 object-contain">
             <span class="absolute left-3 top-2 font-mono text-sm text-muted">#005</span>
           </div>
 
@@ -214,16 +176,11 @@
         </article>
 
         <!-- Carte 6 -->
-        <article tabindex="0"
-          class="flex min-w-0 flex-col gap-3 rounded-card bg-white p-3 pb-4 shadow-sm transition-transform duration-200 hover:-translate-y-1 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+        <article tabindex="0" class="flex min-w-0 flex-col gap-3 rounded-card bg-white p-3 pb-4 shadow-sm transition-transform duration-200 hover:-translate-y-1 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
 
-          <div class="relative flex h-36 items-center justify-center rounded-xl bg-brand-light">
-            <svg aria-hidden="true" class="h-14 w-14 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 16c0-5 3.5-9 8-9s8 4 8 9"></path>
-              <circle cx="9" cy="12" r="1"></circle>
-              <circle cx="15" cy="12" r="1"></circle>
-              <path d="M7 7 5 3M17 7l2-4"></path>
-            </svg>
+          <div class="relative flex h-30 items-center justify-center rounded-xl bg-brand-light">
+            <img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/197.png"
+              alt="Duskwing" class="h-24 w-24 object-contain">
             <span class="absolute left-3 top-2 font-mono text-sm text-muted">#006</span>
           </div>
 
@@ -242,24 +199,16 @@
       <aside class="flex w-full min-w-0 flex-col gap-6 lg:w-[420px] lg:shrink-0">
 
         <!-- ===================== PANNEAU DE DÉTAIL ===================== -->
-        <section id="detail" aria-label="Détail de la créature"
-          class="flex min-w-0 flex-col gap-4 rounded-card border-2 border-ink bg-white p-4 sm:p-6">
+        <section id="detail" aria-label="Détail de la créature" class="flex min-w-0 flex-col gap-4 rounded-card border-2 border-ink bg-white p-4 sm:p-6">
 
           <div class="flex items-center justify-between gap-2">
             <span class="font-mono text-sm text-muted">#003 · Détail</span>
-            <button type="button" aria-label="Fermer le détail"
-              class="btn-outline w-11 shrink-0 px-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
-              ✕
-            </button>
+            <button type="button" aria-label="Fermer le détail" class="btn-outline w-11 shrink-0 px-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">✕</button>
           </div>
 
-          <div class="flex h-48 items-center justify-center rounded-2xl bg-brand-light">
-            <svg aria-hidden="true" class="h-20 w-20 text-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 16c0-5 3.5-9 8-9s8 4 8 9"></path>
-              <circle cx="9" cy="12" r="1"></circle>
-              <circle cx="15" cy="12" r="1"></circle>
-              <path d="M7 7 5 3M17 7l2-4"></path>
-            </svg>
+          <div  class="h-full w-full object-cover" >
+            <img src="https://static.vecteezy.com/system/resources/previews/054/749/917/non_2x/bulbasaur-pokemon-character-free-vector.jpg"
+              alt="Mossling" class="h-30 w-36 object-contain">
           </div>
 
           <div class="flex flex-wrap items-center justify-between gap-2">
@@ -272,170 +221,125 @@
           </p>
 
           <div class="flex flex-col gap-3 text-sm">
-
             <div class="grid grid-cols-[64px_minmax(0,1fr)_36px] items-center gap-2">
               <span class="font-bold">PV</span>
-              <span class="h-3 overflow-hidden rounded-full bg-ground">
-                <span class="block h-3 w-[30%] rounded-full bg-primary"></span>
-              </span>
+              <span class="h-3 overflow-hidden rounded-full bg-ground"><span class="block h-3 w-[30%] rounded-full bg-primary"></span></span>
               <span class="text-right font-mono">45</span>
             </div>
 
             <div class="grid grid-cols-[64px_minmax(0,1fr)_36px] items-center gap-2">
               <span class="font-bold">Attaque</span>
-              <span class="h-3 overflow-hidden rounded-full bg-ground">
-                <span class="block h-3 w-[33%] rounded-full bg-primary"></span>
-              </span>
+              <span class="h-3 overflow-hidden rounded-full bg-ground"><span class="block h-3 w-[33%] rounded-full bg-primary"></span></span>
               <span class="text-right font-mono">49</span>
             </div>
 
             <div class="grid grid-cols-[64px_minmax(0,1fr)_36px] items-center gap-2">
               <span class="font-bold">Défense</span>
-              <span class="h-3 overflow-hidden rounded-full bg-ground">
-                <span class="block h-3 w-[43%] rounded-full bg-primary"></span>
-              </span>
+              <span class="h-3 overflow-hidden rounded-full bg-ground"><span class="block h-3 w-[43%] rounded-full bg-primary"></span></span>
               <span class="text-right font-mono">65</span>
             </div>
-
           </div>
 
-          <button type="button"
-            class="btn-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
-            Ajouter à l'équipe
-          </button>
+          <button type="button" class="btn-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">Ajouter à l'équipe</button>
         </section>
 
         <!-- ===================== MON ÉQUIPE ===================== -->
-        <section id="team" aria-label="Mon équipe"
-          class="min-w-0 rounded-card bg-white p-4 sm:p-6">
-
+        <section id="team" aria-label="Mon équipe" class="min-w-0 rounded-card bg-white p-4 sm:p-6">
           <h2 class="font-display text-2xl font-extrabold">Mon équipe</h2>
 
           <div class="mt-4 flex flex-wrap items-center justify-between gap-2">
             <p class="text-sm text-muted">Mes Pokémon sélectionnés</p>
-            <span class="rounded-full bg-brand-light px-3 py-1 text-sm font-bold text-ink">
-              <span id="team-count-display">0</span>/6
-            </span>
+            <span class="rounded-full bg-brand-light px-3 py-1 text-sm font-bold text-ink"><span id="team-count-display">0</span>/6</span>
           </div>
 
           <div id="team-list" class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-2">
-
             <div class="rounded-xl border-2 border-dashed border-line p-3 text-center text-sm text-muted">Emplacement 1</div>
             <div class="rounded-xl border-2 border-dashed border-line p-3 text-center text-sm text-muted">Emplacement 2</div>
             <div class="rounded-xl border-2 border-dashed border-line p-3 text-center text-sm text-muted">Emplacement 3</div>
             <div class="rounded-xl border-2 border-dashed border-line p-3 text-center text-sm text-muted">Emplacement 4</div>
             <div class="rounded-xl border-2 border-dashed border-line p-3 text-center text-sm text-muted">Emplacement 5</div>
             <div class="rounded-xl border-2 border-dashed border-line p-3 text-center text-sm text-muted">Emplacement 6</div>
-
           </div>
 
           <p class="mt-4 text-sm leading-relaxed text-muted">
             Ton équipe peut contenir jusqu'à 6 Pokémon différents. Tu ne peux pas ajouter deux fois le même Pokémon.
           </p>
-
         </section>
 
       </aside>
     </div>
 
     <!-- ===================== FORMULAIRE DE CRÉATION ===================== -->
-    <section id="create" aria-label="Nouvelle créature"
-      class="flex min-w-0 flex-col gap-6 rounded-card bg-white p-4 sm:p-8">
+    <section id="create" aria-label="Nouvelle créature" class="flex min-w-0 flex-col gap-6 rounded-card bg-white p-4 sm:p-8">
 
       <div>
-        <h2 class="font-display text-2xl font-extrabold sm:text-3xl">
-          Nouvelle créature
-        </h2>
-        <p class="mt-2 text-muted">
-          Chaque champ est vérifié avant l'ajout de la créature.
-        </p>
+        <h2 class="font-display text-2xl font-extrabold sm:text-3xl">Nouvelle créature</h2>
+        <p class="mt-2 text-muted">Chaque champ est vérifié avant l'ajout de la créature.</p>
       </div>
 
-      <form id="creature-form" novalidate
-        class="grid min-w-0 grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <form id="creature-form" novalidate class="grid min-w-0 grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
 
         <label class="flex min-w-0 flex-col gap-1 text-sm font-bold">
           Numéro
-          <input name="id" type="text" placeholder="#010" required
-            class="field w-full min-w-0 font-normal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+          <input name="id" type="text" placeholder="#010" required class="field w-full min-w-0 font-normal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
           <span class="error-message text-sm font-normal text-muted"></span>
         </label>
 
         <label class="flex min-w-0 flex-col gap-1 text-sm font-bold">
           Nom
-          <input name="name" type="text" placeholder="Nom du Pokémon" required
-            class="field w-full min-w-0 font-normal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+          <input name="name" type="text" placeholder="Nom du Pokémon" required class="field w-full min-w-0 font-normal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
           <span class="error-message text-sm font-normal text-muted"></span>
         </label>
 
         <label class="flex min-w-0 flex-col gap-1 text-sm font-bold">
           Type
-          <select name="type" required
-            class="field w-full min-w-0 font-normal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+          <select name="type" required class="field w-full min-w-0 font-normal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
             <option value="">Choisir un type</option>
-            <option>Feu</option>
-            <option>Eau</option>
-            <option>Plante</option>
-            <option>Électrik</option>
-            <option>Glace</option>
-            <option>Ténèbres</option>
+            <option>Feu</option><option>Eau</option><option>Plante</option>
+            <option>Électrik</option><option>Glace</option><option>Ténèbres</option>
           </select>
           <span class="error-message text-sm font-normal text-muted"></span>
         </label>
 
         <label class="flex min-w-0 flex-col gap-1 text-sm font-bold">
           Niveau
-          <input name="level" type="text" placeholder="Base, Niveau 1…" required
-            class="field w-full min-w-0 font-normal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+          <input name="level" type="text" placeholder="Base, Niveau 1…" required class="field w-full min-w-0 font-normal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
           <span class="error-message text-sm font-normal text-muted"></span>
         </label>
 
         <label class="flex min-w-0 flex-col gap-1 text-sm font-bold">
           Statistique 1 (PV)
-          <input name="stat1" type="number" min="0" max="999" placeholder="0 à 999" required
-            class="field w-full min-w-0 font-normal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+          <input name="stat1" type="number" min="0" max="999" placeholder="0 à 999" required class="field w-full min-w-0 font-normal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
           <span class="error-message text-sm font-normal text-muted"></span>
         </label>
 
         <label class="flex min-w-0 flex-col gap-1 text-sm font-bold">
           Statistique 2 (Attaque)
-          <input name="stat2" type="number" min="0" max="999" placeholder="0 à 999" required
-            class="field w-full min-w-0 font-normal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+          <input name="stat2" type="number" min="0" max="999" placeholder="0 à 999" required class="field w-full min-w-0 font-normal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
           <span class="error-message text-sm font-normal text-muted"></span>
         </label>
 
         <label class="flex min-w-0 flex-col gap-1 text-sm font-bold">
           Statistique 3 (Défense)
-          <input name="stat3" type="number" min="0" max="999" placeholder="0 à 999" required
-            class="field w-full min-w-0 font-normal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+          <input name="stat3" type="number" min="0" max="999" placeholder="0 à 999" required class="field w-full min-w-0 font-normal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
           <span class="error-message text-sm font-normal text-muted"></span>
         </label>
 
         <label class="flex min-w-0 flex-col gap-1 text-sm font-bold">
           Lien de l'image
-          <input name="image" type="url" placeholder="https://…/image.png" required
-            class="field w-full min-w-0 font-normal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+          <input name="image" type="url" placeholder="https://…/image.png" required class="field w-full min-w-0 font-normal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
           <span class="error-message text-sm font-normal text-muted"></span>
         </label>
 
         <label class="flex min-w-0 flex-col gap-1 text-sm font-bold sm:col-span-2 lg:col-span-4">
           Description
-          <textarea name="description" rows="3" required
-            placeholder="10 à 200 caractères"
-            class="field w-full min-w-0 rounded-xl border-2 border-line p-3 font-normal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"></textarea>
+          <textarea name="description" rows="3" required placeholder="10 à 200 caractères" class="field w-full min-w-0 rounded-xl border-2 border-line p-3 font-normal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"></textarea>
           <span class="error-message text-sm font-normal text-muted"></span>
         </label>
 
         <div class="flex flex-wrap justify-end gap-3 sm:col-span-2 lg:col-span-4">
-          <button type="reset"
-            class="btn-outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
-            Effacer
-          </button>
-
-          <button type="submit"
-            class="btn-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
-            Ajouter la créature
-          </button>
+          <button type="reset" class="btn-outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">Effacer</button>
+          <button type="submit" class="btn-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">Ajouter la créature</button>
         </div>
 
       </form>
