@@ -1,0 +1,138 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* MON DEX DESIGN */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-width: 0;
+    background-color: #f3f4f6;
+    color: #1f2937;
+    font-family: Arial, sans-serif;
+  }
+
+  img,
+  svg {
+    max-width: 100%;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  article:focus-visible {
+    outline: 3px solid #dc2626;
+    outline-offset: 3px;
+  }
+}
+
+/* REUSABLE COMPONENTS */
+@layer components {
+  /* Main button */
+  .btn-primary {
+    @apply inline-flex min-h-12 items-center justify-center rounded-xl bg-brand px-6 font-bold text-white transition-colors;
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    background-color: #991b1b;
+  }
+
+  /* Secondary button */
+  .btn-outline {
+    @apply inline-flex min-h-11 items-center justify-center rounded-xl border-2 border-ink bg-white px-4 font-bold text-ink transition-colors;
+  }
+
+  .btn-outline:hover:not(:disabled) {
+    @apply bg-brand-light;
+  }
+
+  /* Type filter */
+  .chip {
+    @apply inline-flex min-h-11 shrink-0 items-center justify-center rounded-full border-2 border-line bg-white px-5 font-bold text-ink transition-colors;
+  }
+
+  .chip:hover {
+    @apply border-brand bg-brand-light;
+  }
+
+  /* Form field */
+  .field {
+    @apply min-h-12 w-full min-w-0 rounded-xl border-2 border-line bg-white px-3 text-base text-ink;
+  }
+
+  .field:focus,
+  textarea:focus {
+    @apply border-brand;
+    outline: 2px solid #dc2626;
+    outline-offset: 2px;
+  }
+
+  /* Creature cards */
+  .creature-card {
+    @apply min-w-0 rounded-card bg-white p-3 transition duration-200;
+  }
+
+  .creature-card:hover {
+    transform: translateY(-4px);
+    @apply shadow-lg;
+  }
+
+  /* Disabled buttons */
+  button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+/* RESPONSIVE SUPPORT */
+@layer utilities {
+  .min-w-0 {
+    min-width: 0;
+  }
+
+  .break-long-text {
+    overflow-wrap: anywhere;
+  }
+}
+
+/* Form validation */
+.field:invalid:not(:placeholder-shown),
+input:invalid:not(:placeholder-shown),
+select:invalid {
+  border-color: #dc2626;
+}
+
+.field:valid:not(:placeholder-shown),
+input:valid:not(:placeholder-shown),
+select:valid {
+  border-color: #16a34a;
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
