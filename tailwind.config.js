@@ -38,7 +38,10 @@ module.exports = {
       },
     },
   },
-  .image
+   
+   
+
+  
 
   plugins: [],
 };
