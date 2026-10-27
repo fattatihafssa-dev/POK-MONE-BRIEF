@@ -22,7 +22,7 @@
       </div>
       <nav aria-label="Navigation principale" class="flex flex-wrap gap-2">
         <a href="#grid" class="rounded-full bg-white/10 px-4 py-2"> Créatures</a>
-        <a href="#team" class="rounded-full bg-white/10 px-4 py-2">Mon équipe · <span id="team-count">0</span>/12</a>
+       <a href="#team" class="rounded-full bg-white/10 px-4 py-2">Mon équipe · <span id="team-count">0</span>/6</a>
         <a href="#create" class="rounded-full bg-white px-4 py-2 font-bold text-ink transition hover:bg-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">+ Nouvelle créature</a>
       </nav>
     </div>
@@ -49,14 +49,13 @@
         <button type="button" class="chip shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">Ténèbres</button>
       </div>
     </section>
-
-    <div class="flex flex-col gap-8 lg:flex-col lg:items-stretch">
+    <div class="flex min-w-0 flex-col gap-8">
       <!-- ===================== GRILLE DES CRÉATURES ===================== -->
    <section id="grid" aria-label="Créatures"
   class="grid w-full min-w-0 grid-cols-3 gap-6 lg:flex-1"></section>
         <!-- ===================== PANNEAU DE DÉTAIL ===================== -->
         <section id="detail" aria-label="Détail de la créature"
-           style="border: 8px solid red;"
+           style="border: 8px solid rgb(222, 52, 40);"
            class="flex w-full shrink-0 flex-col gap-4 rounded-card bg-white p-6 lg:w-96">
           
           <div class="flex items-center justify-between">
@@ -76,19 +75,94 @@
             <div class="grid grid-cols-[80px_1fr_40px] items-center gap-2"><span class="font-bold">Attaque</span><span class="h-3 rounded-full bg-ground"><span class="block h-3 w-[33%] rounded-full bg-brand"></span></span><span class="text-right font-mono">49</span></div>
             <div class="grid grid-cols-[80px_1fr_40px] items-center gap-2"><span class="font-bold">Défense</span><span class="h-3 rounded-full bg-ground"><span class="block h-3 w-[43%] rounded-full bg-brand"></span></span><span class="text-right font-mono">65</span></div>
           </div>
-          <button type="button" class="btn-primary">Ajouter à l'équipe</button>
+          <button type="submit" class="btn-primary">
+           Ajouter la créature
+         </button>
         </section>
 
-        <!-- ===================== MON ÉQUIPE (INCOMPLÈTE) ===================== -->
-        <section id="team" aria-label="Mon équipe" class="rounded-card bg-white p-6">
-          <h2 class="font-display text-2xl font-extrabold">Mon équipe</h2>
-          <!-- TODO (Partie 1) : terminez cette section en suivant la maquette :
-               compteur x/6, 6 emplacements (vides ou remplis), message de règles. -->
-        </section>
 
-     
+<!-- ===================== MON ÉQUIPE ===================== -->
+
+<section id="detail" aria-label="Détail de la créature"
+           style="border: 8px solid rgb(242, 156, 181);"
+           class="flex w-full shrink-0 flex-col gap-4 rounded-card bg-white p-6 lg:w-96">
+          
+<section id="team" class="min-w-0 rounded-xl bg-white p-6 shadow-sm sm:p-6">
+
+  <div class="mb-5 flex flex-wrap items-center justify-between gap-3">
+    <div>
+      <section id="detail" aria-label="Détail de la créature"
+           style="border: 4px solid rgb(242, 164, 198);"
+           class="flex w-full shrink-0 flex-col gap-4 rounded-card bg-white p-6 lg:w-96">
+          
+     <h1 class="font-display text-3xl font-extrabold gap-3">Mon equipe</h1>
+      
     </div>
 
+    <span
+      id="team-count-display"
+      class="rounded-full bg-brand-light px-3 py-1 text-sm font-semibold text-ink"
+    >
+      0 / 6
+    </span>
+  </div>
+     </section>V
+
+  <!-- Liste des Pokémon de l'équipe -->
+  <div
+    id="team-list"
+    class="grid min-w-0 grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6"
+  >
+  </div>
+
+    <!-- Emplacement 1 -->
+     <section id="detail" aria-label="Détail de la créature"
+           style="border: 8px solid rgb(242, 156, 181);"
+           class="flex w-full shrink-0 flex-col gap-4 rounded-card bg-white p-6 lg:w-96">
+          </section>
+    <div class="team-slot flex min-h-36 flex-col items-center justify-center rounded-xl border-2 border-dashed border-gray-300 p-3 text-center">
+      <span class="text-3xl text-gray-400">+</span>
+      <p class="mt-2 text-sm text-muted">Ajoutez un creature</p>
+    </div>
+    
+
+    <!-- Emplacement 2 -->
+    <div class="team-slot flex min-h-30 flex-col items-center justify-center rounded-xl border border-dashed border-gray-300 p-3 text-center">
+      <span class="text-3xl text-gray-400">+</span>
+      <p class="mt-2 text-sm text-muted">Ajoutez un creature</p>
+    </div>
+
+    <!-- Emplacement 3 -->
+    <div class="team-slot flex min-h-36 flex-col items-center justify-center rounded-xl border-2 border-dashed border-gray-300 p-3 text-center">
+      <span class="text-3xl text-gray-400">+</span>
+      <p class="mt-2 text-sm text-muted">Ajoutez un creature</p>
+    </div>
+
+    <!-- Emplacement 4 -->
+    <div class="team-slot flex min-h-36 flex-col items-center justify-center rounded-xl border-2 border-dashed border-gray-300 p-3 text-center">
+      <span class="text-3xl text-gray-400">+</span>
+      <p class="mt-2 text-sm text-muted">Ajoutez un creature</p>
+    </div>
+
+    <!-- Emplacement 5 -->
+    <div class="team-slot flex min-h-36 flex-col items-center justify-center rounded-xl border-2 border-dashed border-gray-300 p-3 text-center">
+      <span class="text-3xl text-gray-400">+</span>
+      <p class="mt-2 text-sm text-muted">Ajoutez un creature</p>
+    </div>
+
+
+    <!-- Emplacement 6 -->
+    <div class="team-slot flex min-h-36 flex-col items-center justify-center rounded-xl border-2 border-dashed border-gray-300 p-3 text-center">
+      <span class="text-3xl text-gray-400">+</span>
+      <p class="mt-2 text-sm text-muted">Ajoutez un creature</p>
+    </div>
+
+ 
+
+
+</section>
+
+  
     <!-- ===================== FORMULAIRE DE CRÉATION ===================== -->
     <section id="create" aria-label="Nouvelle créature" class="flex flex-col gap-6 rounded-card bg-white p-8">
       <div>
@@ -138,7 +212,14 @@
         </label>
         <div class="flex flex-wrap justify-end gap-3 md:col-span-2 lg:col-span-4">
           <button type="reset" class="btn-outline px-6">Effacer</button>
-          <button type="submit" class="btn-primary">Ajouter la créature</button>
+          
+        <button
+        id="add-to-team"
+        type="submit"
+        class="btn-primary px-8">
+  Ajouter la créature
+</button>
+
         </div>
       </form>
     </section>
@@ -150,6 +231,7 @@
   </footer>
 
   <!-- data.js (à créer) doit être chargé AVANT script.js -->
+   
  <script src="./script.js"></script>
 </body>
 </html>
