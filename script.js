@@ -1,6 +1,3 @@
-// =============================================================
-// script.js — Mon Dex Pokémon
-// =============================================================
 
 const creatures = [
   {
@@ -86,7 +83,7 @@ const creatures = [
   },
   {
     id: "#010",
-    name: "Houdour",
+    name: "Houndour",
     type: "Électrik",
     level: "Base",
     stats: { hp: 45, attack: 49, defence: 49 },
@@ -113,10 +110,6 @@ const creatures = [
   }
 ];
 
-// =============================================================
-// SELECT HTML ELEMENTS
-// =============================================================
-
 const grid = document.querySelector("#grid");
 const searchInput = document.getElementById("search");
 const filters = document.getElementById("filters");
@@ -124,14 +117,12 @@ const creatureForm = document.getElementById("creature-form");
 
 const team = [];
 const teamList = document.getElementById("team-list");
-const teamCountDisplay = document.getElementById("team-count-display");
+const teamCount = document.getElementById("team-count-display");
+const teamCountNav = document.getElementById("team-count");
 
 let selectedType = "Tous";
 
-// =============================================================
-// DISPLAY THE POKÉMON CARDS
-// =============================================================
-
+// Display the Pokémon cards
 function displayCreatures(list = creatures) {
   if (!grid) {
     console.error("Cannot find the grid. Check the id in index.html.");
@@ -189,10 +180,7 @@ function displayCreatures(list = creatures) {
   }).join("");
 }
 
-// =============================================================
-// SEARCH AND FILTER POKÉMON TOGETHER
-// =============================================================
-
+// Search and filter Pokémon together
 function displayFilteredCreatures() {
   const searchText = searchInput
     ? searchInput.value.trim().toLowerCase()
@@ -210,10 +198,7 @@ function displayFilteredCreatures() {
   displayCreatures(filteredCreatures);
 }
 
-// =============================================================
-// FILTER BUTTONS
-// =============================================================
-
+// Filter buttons
 if (filters) {
   filters.addEventListener("click", function(event) {
     const button = event.target.closest("button");
@@ -223,86 +208,85 @@ if (filters) {
     }
 
     selectedType = button.textContent.trim();
-
     displayFilteredCreatures();
   });
 }
 
-// =============================================================
-// LIVE SEARCH
-// =============================================================
-
+// Live search
 if (searchInput) {
   searchInput.addEventListener("input", function() {
     displayFilteredCreatures();
   });
 }
 
-// =============================================================
-// DISPLAY THE TEAM
-// =============================================================
-
+// Display the team
 function displayTeam() {
-  if (!teamList) return;
+  if (!teamList) {
+    console.error("Cannot find #team-list. Check index.html.");
+    return;
+  }
 
-  teamList.innerHTML = team.map(function(pokemon) {
-    return `
-      <div class="flex items-center justify-between gap-3 rounded-xl bg-white p-3 shadow-sm">
-
-        <div class="flex items-center gap-3">
-          <img
-            src="${pokemon.image}"
-            alt="${pokemon.name}"
-            class="h-14 w-14 object-contain"
-          >
-
-          <div>
-            <p class="font-semibold">${pokemon.name}</p>
-            <p class="text-sm text-muted">${pokemon.type}</p>
-          </div>
-        </div>
-
-        <button
-          type="button"
-          class="remove-from-team rounded-lg bg-red-600 px-3 py-2 text-white hover:bg-red-700"
-          data-id="${pokemon.id}"
-        >
-          Retirer
-        </button>
-
-      </div>
+  if (team.length === 0) {
+    teamList.innerHTML = `
+      <p class="text-muted">
+        Votre équipe est vide. Ajoutez des Pokémon depuis le Pokédex !
+      </p>
     `;
-  }).join("");
+  } else {
+    teamList.innerHTML = team.map(function(pokemon) {
+      return `
+        <div class="flex items-center justify-between gap-3 rounded-xl bg-white p-3 shadow-sm">
+          <div class="flex items-center gap-3">
+            <img
+              src="${pokemon.image}"
+              alt="${pokemon.name}"
+              class="h-14 w-14 object-contain"
+            >
+            <div>
+              <p class="font-semibold">${pokemon.name}</p>
+              <p class="text-sm text-muted">${pokemon.type}</p>
+            </div>
+          </div>
 
-  if (teamCountDisplay) {
-    teamCountDisplay.textContent = `${team.length}/6`;
+          <button
+            type="button"
+            class="remove-from-team rounded-lg bg-red-600 px-3 py-2 text-white hover:bg-red-700"
+            data-id="${pokemon.id}"
+          >
+            Retirer
+          </button>
+        </div>
+      `;
+    }).join("");
+  }
+
+  if (teamCount) {
+    teamCount.textContent = `${team.length}/6`;
+  }
+
+  if (teamCountNav) {
+    teamCountNav.textContent = team.length;
   }
 }
 
-// =============================================================
-// CARD CLICKS: ADD, DELETE OR SHOW DETAILS
-// =============================================================
-
+// Card clicks: add, delete, or show details
 if (grid) {
   grid.addEventListener("click", function(event) {
+    const addButton = event.target.closest(".add-to-team");
+    const deleteButton = event.target.closest(".delete-btn");
 
     // Add a Pokémon to the team
-    const addButton = event.target.closest(".add-to-team");
-
     if (addButton) {
       const card = addButton.closest("article");
 
       if (!card) return;
 
-      const id = card.dataset.id;
-
       const pokemon = creatures.find(function(creature) {
-        return String(creature.id) === id;
+        return creature.id === card.dataset.id;
       });
 
       if (!pokemon) return;
 
-      // Prevent duplicates
       if (team.some(function(member) {
         return member.id === pokemon.id;
       })) {
@@ -310,7 +294,6 @@ if (grid) {
         return;
       }
 
-      // Maximum of 6 Pokémon
       if (team.length >= 6) {
         alert("Votre équipe est complète : 6 Pokémon maximum.");
         return;
@@ -322,27 +305,21 @@ if (grid) {
     }
 
     // Delete a Pokémon from the Dex
-    const deleteButton = event.target.closest(".delete-btn");
-
     if (deleteButton) {
       const card = deleteButton.closest("article");
 
       if (!card) return;
 
-      const id = card.dataset.id;
-
       const index = creatures.findIndex(function(creature) {
-        return String(creature.id) === id;
+        return creature.id === card.dataset.id;
       });
 
       if (index !== -1) {
-        const deletedPokemon = creatures[index];
-
         creatures.splice(index, 1);
 
-        // Also remove the Pokémon from the team if necessary
+        // Also remove it from the team if it was selected
         const teamIndex = team.findIndex(function(member) {
-          return member.id === deletedPokemon.id;
+          return member.id === card.dataset.id;
         });
 
         if (teamIndex !== -1) {
@@ -356,27 +333,24 @@ if (grid) {
       return;
     }
 
-    // Show Pokémon details when the card is clicked
+    // Show details when clicking a card
     const card = event.target.closest("article");
 
-    if (!card) return;
-
-    // Do not open details when clicking a button
-    if (event.target.closest("button")) return;
-
-    const id = card.dataset.id;
+    if (!card || event.target.closest("button")) return;
 
     const pokemon = creatures.find(function(creature) {
-      return String(creature.id) === id;
+      return creature.id === card.dataset.id;
     });
 
     if (pokemon) {
+      const detailNumber = document.getElementById("detail-number");
       const detailName = document.getElementById("detail-name");
+      const detailType = document.getElementById("detail-type");
       const detailImage = document.getElementById("detail-image");
 
-      if (detailName) {
-        detailName.textContent = pokemon.name;
-      }
+      if (detailNumber) detailNumber.textContent = `${pokemon.id} · Détail`;
+      if (detailName) detailName.textContent = pokemon.name;
+      if (detailType) detailType.textContent = pokemon.type;
 
       if (detailImage) {
         detailImage.innerHTML = `
@@ -391,11 +365,7 @@ if (grid) {
   });
 }
 
-// =============================================================
-// REMOVE A POKÉMON FROM THE TEAM
-// Event delegation: one listener for the whole team
-// =============================================================
-
+// Remove a Pokémon from the team using event delegation
 if (teamList) {
   teamList.addEventListener("click", function(event) {
     const removeButton = event.target.closest(".remove-from-team");
@@ -405,7 +375,7 @@ if (teamList) {
     const id = removeButton.dataset.id;
 
     const index = team.findIndex(function(pokemon) {
-      return String(pokemon.id) === id;
+      return pokemon.id === id;
     });
 
     if (index !== -1) {
@@ -415,199 +385,92 @@ if (teamList) {
   });
 }
 
-// =============================================================
-// FORM VALIDATION
-// =============================================================
-
-// Find the error message associated with a field
-function getErrorElement(field) {
-  const label = field.closest("label");
-
-  if (label) {
-    const error = label.querySelector(".error-message");
-    if (error) return error;
-  }
-
-  const parent = field.parentElement;
-
-  return parent ? parent.querySelector(".error-message") : null;
-}
-
-// Display an error or success border
-function showFieldResult(field, message) {
-  const errorElement = getErrorElement(field);
-
-  field.classList.remove("border-red-500", "border-green-500");
-
-  if (message) {
-    field.classList.add("border-red-500");
-
-    if (errorElement) {
-      errorElement.textContent = message;
-      errorElement.classList.remove("hidden");
-    }
-  } else {
-    field.classList.add("border-green-500");
-
-    if (errorElement) {
-      errorElement.textContent = "";
-      errorElement.classList.add("hidden");
-    }
-  }
-}
-
-// Check the value of one field
-function validateField(field) {
-  const value = field.value.trim();
-  const name = field.name;
-  let message = "";
-
-  if (!value) {
-    message = "Ce champ est obligatoire.";
-  } else {
-    switch (name) {
-      case "id":
-        if (!/^#\d{3}$/.test(value)) {
-          message = "L'identifiant doit respecter le format #001.";
-        } else if (creatures.some(function(creature) {
-          return creature.id === value;
-        })) {
-          message = "Cet identifiant existe déjà.";
-        }
-        break;
-
-      case "name":
-        if (!/^[A-Za-zÀ-ÿ0-9 '\-]{2,30}$/.test(value)) {
-          message = "Le nom doit contenir entre 2 et 30 caractères valides.";
-        }
-        break;
-
-      case "type": {
-        const allowedTypes = [
-          "Feu",
-          "Eau",
-          "Plante",
-          "Électrik",
-          "Glace",
-          "Ténèbres"
-        ];
-
-        if (!allowedTypes.includes(value)) {
-          message = "Veuillez choisir un type valide.";
-        }
-        break;
-      }
-
-      case "level":
-        if (!/^[A-Za-zÀ-ÿ0-9 '\-]{2,20}$/.test(value)) {
-          message = "Le niveau doit contenir entre 2 et 20 caractères.";
-        }
-        break;
-
-      case "stat1":
-      case "stat2":
-      case "stat3":
-        if (!/^\d{1,3}$/.test(value) || Number(value) > 999) {
-          message = "Entrez un nombre entier entre 0 et 999.";
-        }
-        break;
-
-      case "image":
-        try {
-          const imageURL = new URL(value);
-
-          if (
-            imageURL.protocol !== "http:" &&
-            imageURL.protocol !== "https:"
-          ) {
-            message = "Utilisez une adresse d'image HTTP ou HTTPS valide.";
-          }
-        } catch {
-          message = "Veuillez entrer une URL d'image valide.";
-        }
-        break;
-
-      case "description":
-        if (value.length < 3 || value.length > 300) {
-          message = "La description doit contenir entre 3 et 300 caractères.";
-        }
-        break;
-    }
-  }
-
-  showFieldResult(field, message);
-
-  return message === "";
-}
-
-// Validate fields when the user leaves them
+// Add a new Pokémon using the form
 if (creatureForm) {
-  const formFields = creatureForm.querySelectorAll(
-    "input[name], select[name], textarea[name]"
-  );
-
-  formFields.forEach(function(field) {
-    field.addEventListener("blur", function() {
-      validateField(field);
-    });
-
-    field.addEventListener("input", function() {
-      if (field.classList.contains("border-red-500")) {
-        validateField(field);
-      }
-    });
-
-    field.addEventListener("change", function() {
-      if (field.classList.contains("border-red-500")) {
-        validateField(field);
-      }
-    });
-  });
-
-  // Add a new Pokémon using the form
   creatureForm.addEventListener("submit", function(event) {
     event.preventDefault();
 
-    let formIsValid = true;
+    const formData = new FormData(creatureForm);
 
-    formFields.forEach(function(field) {
-      if (!validateField(field)) {
-        formIsValid = false;
-      }
-    });
+    const name = formData.get("name").trim();
+    const type = formData.get("type");
+    const level = formData.get("level").trim();
+    const stat1 = formData.get("stat1").trim();
+    const stat2 = formData.get("stat2").trim();
+    const stat3 = formData.get("stat3").trim();
+    const image = formData.get("image").trim();
+    const description = formData.get("description").trim();
+    const idInput = formData.get("id").trim();
 
-    if (!formIsValid) {
-      alert("Veuillez corriger les champs signalés avant de continuer.");
+    if (
+      !idInput ||
+      !name ||
+      !type ||
+      !level ||
+      !stat1 ||
+      !stat2 ||
+      !stat3 ||
+      !image ||
+      !description
+    ) {
+      alert("Veuillez remplir tous les champs.");
       return;
     }
 
-    const formData = new FormData(creatureForm);
+    // Validate the creature number
+    if (!/^#\d{3}$/.test(idInput)) {
+      alert("Le numéro doit respecter le format #001.");
+      return;
+    }
 
-    const id = String(formData.get("id")).trim();
-    const name = String(formData.get("name")).trim();
-    const type = String(formData.get("type")).trim();
-    const level = String(formData.get("level")).trim();
+    // Check for a duplicate ID
+    if (creatures.some(function(creature) {
+      return creature.id === idInput;
+    })) {
+      alert("Ce numéro existe déjà.");
+      return;
+    }
 
-    const stat1 = String(formData.get("stat1")).trim();
-    const stat2 = String(formData.get("stat2")).trim();
-    const stat3 = String(formData.get("stat3")).trim();
+    // Validate the statistics
+    const validStats = [stat1, stat2, stat3].every(function(stat) {
+      return /^\d{1,3}$/.test(stat) && Number(stat) <= 999;
+    });
 
-    const image = String(formData.get("image")).trim();
-    const description = String(formData.get("description")).trim();
+    if (!validStats) {
+      alert("Les statistiques doivent être des nombres entre 0 et 999.");
+      return;
+    }
+
+    // Validate the image URL
+    try {
+      const imageURL = new URL(image);
+
+      if (imageURL.protocol !== "http:" && imageURL.protocol !== "https:") {
+        alert("Veuillez entrer un lien d'image valide.");
+        return;
+      }
+    } catch {
+      alert("Veuillez entrer un lien d'image valide.");
+      return;
+    }
+
+    // Validate the description length
+    if (description.length < 10 || description.length > 200) {
+      alert("La description doit contenir entre 10 et 200 caractères.");
+      return;
+    }
 
     // Create the new Pokémon
     const newCreature = {
-      id: id,
+      id: idInput,
       name: name,
       type: type,
       level: level,
-
       stats: {
         hp: Number(stat1),
         attack: Number(stat2),
         defence: Number(stat3)
       },
-
       image: image,
       description: description
     };
@@ -617,25 +480,10 @@ if (creatureForm) {
     displayFilteredCreatures();
     creatureForm.reset();
 
-    // Clear validation borders and messages after resetting
-    formFields.forEach(function(field) {
-      field.classList.remove("border-red-500", "border-green-500");
-
-      const errorElement = getErrorElement(field);
-
-      if (errorElement) {
-        errorElement.textContent = "";
-        errorElement.classList.add("hidden");
-      }
-    });
-
     alert("Créature ajoutée avec succès !");
   });
 }
 
-// =============================================================
-// INITIAL DISPLAY
-// =============================================================
-
+// Initial display
 displayCreatures();
 displayTeam();
